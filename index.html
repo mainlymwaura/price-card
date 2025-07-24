@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.pricing-card {
+  width: 300px;
+  margin: 20px auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc;
+  padding: 20px;
+  text-align: left;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.pricing-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+.pricing-price {
+  font-size: 18px;
+  color: green;
+  margin: 0 0 15px 0;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.pricing-features li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.pricing-btn {
+  background: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.pricing-btn:hover {
+  background: darkblue;
+}
+</style>
+</head>
+<body>
+
+<script>
+function createPricingCard({ title, price, features, buttonText = 'Start Trial' }) {
+  const featuresList = features.map(feature => `<li>${feature}</li>`).join('');
+  
+  return `
+    <div class="pricing-card">
+      <h2 class="pricing-title">${title}</h2>
+      <p class="pricing-price">${price}</p>
+      <ul class="pricing-features">
+        ${featuresList}
+      </ul>
+      <button class="pricing-btn">${buttonText}</button>
+    </div>
+  `;
+}
+
+// Example usage
+document.body.innerHTML += createPricingCard({
+  title: "Basic Plan",
+  price: "$9.99/month",
+  features: ["1 GB Storage", "Basic Support", "All Core Features"]
+});
+
+// Can easily create another card
+document.body.innerHTML += createPricingCard({
+  title: "Pro Plan",
+  price: "$19.99/month",
+  features: ["10 GB Storage", "Priority Support", "All Core Features", "Advanced Analytics"],
+  buttonText: "Get Pro"
+});
+</script>
+
+</body>
+</html>
